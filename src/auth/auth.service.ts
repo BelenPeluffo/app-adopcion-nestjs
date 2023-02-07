@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { NotFoundError } from 'rxjs';
 import { UsersService } from 'src/users/users.service';
 
 @Injectable()
@@ -11,6 +12,10 @@ export class AuthService {
             const { password, ...result} = user;
             return result;
         }
-        return null
+        //return null
+        throw new NotFoundException(`El user ${username} no se encuentra en la base de datos`);
+        /* debería crear excepciones en función de que
+        1. esté mal el username y
+        2. esté mal la contraseña?*/
     }
 }
