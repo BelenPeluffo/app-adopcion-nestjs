@@ -32,10 +32,10 @@ export class UsersService {
   }
   */
 
-  /*/ para el auth:
+  // para el auth:
   async findOne(username: string): Promise<User> {
     return this.userRepository.findOneBy({username});
-  }*/
+  }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     // return `This action updates a #${id} user`;
